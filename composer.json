@@ -1,0 +1,23 @@
+{
+  "name": "okneloper/session",
+  "type": "library",
+  "description": "PHP's native session wrapper with namespacing",
+  "keywords": ["session"],
+  "homepage": "https://github.com/okneloper/session",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aleksey Lavrinenko",
+      "email": "okneloper@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Okneloper\\Session\\": "src"
+    }
+  },
+  "require": {
+    "php": ">=5.3.0"
+  }
+}
