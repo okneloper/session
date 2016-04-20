@@ -102,6 +102,11 @@ class Session
         unset($_SESSION[$this->namespace][$key]);
     }
 
+    public function __isset($key)
+    {
+        return isset($_SESSION[$this->namespace][$key]);
+    }
+
     /**
      * Unset all the data and the namespace from session
      */
@@ -110,5 +115,20 @@ class Session
         if (isset($_SESSION[$this->namespace])) {
             unset($_SESSION[$this->namespace]);
         }
+    }
+
+    /**
+     * Removes the key from session and returns it's value
+     * @param $key
+     * @return mixed|null
+     */
+    public function extract($key)
+    {
+        if (!$this->__isset($key)) {
+            return null;
+        }
+        $value = $this->__get($key);
+        $this->__unset($key);
+        return $value;
     }
 }
